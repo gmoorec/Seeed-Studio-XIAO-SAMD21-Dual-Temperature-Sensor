@@ -27,7 +27,7 @@ TBD add images / insights from project.
 
 ## PART 4. Arduino IDE
 
-Before this project, I'd tap into [OpenWeather's Weather API](https://openweathermap.org/api), get temperature for my city via powershell, and update a .sensor file read from Fan Control. 
+Before this project, I'd tap into [OpenWeather's Weather API](https://openweathermap.org/api), get temperature for my city via powershell, and update a .sensor file read from FanControl. 
 Code: [Arduino](https://github.com/gmoorec/XIAO-M0-Dual-Temperature-Sensor/blob/main/src/xiao_samd21_temp_sensor.ino)
 I opted to output both sensor readings as a JSON formatted string (e.g.: {"temp1":22.66,"temp2":22.50}) which then the DLL in the next section parses and turns into two sensors readable from FanControl.
 
