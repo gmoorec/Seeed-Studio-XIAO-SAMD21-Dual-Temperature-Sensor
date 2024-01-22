@@ -1,4 +1,4 @@
-# Seeed-Studio-XIAO-liquid-temperature-sensor
+# Seeed-Studio-XIAO-SAMD21-Dual-Temperature-Sensor
 This is a fork from [Naata/Trinket-M0-liquid-temperature-sensor](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/tree/main) which I used as base, and modified to my particular use case, and needs. 
 In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference. 
 
