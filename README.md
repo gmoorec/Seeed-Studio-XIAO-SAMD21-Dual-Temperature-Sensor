@@ -1,11 +1,36 @@
-# Trinket-M0-liquid-temperature-sensor
-Simple program and PS script to allow monitoring of liquid temps in liquid cooling PCs
+# XIAO-M0-liquid-temperature-sensor
+This is a fork from [Naata/Trinket-M0-liquid-temperature-sensor](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/tree/main) which I used as base, and modified to my particular use case, and needs. 
+In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference. 
 
-## Usage
+## PART 1. The Sensors
 
-1. Make sure that your liquid cooling loop has a temp probe installed. For my project I used this [Phobya G1/4" Inline Temperature Sensor](https://www.amazon.com/,Phobya-Inline-Temperature-Sensor-Nickel/dp/B00414VYEC), but any will be fine.
+Most watercooling temp sensors are 10k Ohm thermistors. I used:
+- [Alphacool Eiszapfen inline temperature sensor | Part #17362](https://shop.alphacool.com/en/shop/controllers-and-sensors/temperature-sensor/17362-alphacool-eiszapfen-temperature-sensor-g1/4-ig/ig-with-ag-adapter-chrome)
+- [Alphacool Eiszapfen temperature sensor plug | Part #17364](https://shop.alphacool.com/en/shop/controllers-and-sensors/temperature-sensor/17364-alphacool-eiszapfen-temperature-sensor-plug-g1/4-chrome)
 
-2. Buy yourself a [Trinket M0](https://www.adafruit.com/product/3500). This is a board I used, but feel free to use a different one and change the code as needed. **Trinket M0** is very cool as it can natively output serial data via USB, and it can be seen in Windows as COM device. It also has RGB diode which is useful to have some indication of liquid temperature without need to access data in OS.
+For both, Alphacool provides the same [Thermistor Datasheet](https://www.alphacool.com/download/kOhm_Sensor_Table_Alphacool.pdf) and this is useful to tune the calculated resistance values and improve accuracy. Also, means that the parts can be connected to either port in the pcb.
+
+## PART 2. Microcontroller
+
+I opted for the Seeed XIAO SAMD21, and just like the Adafruit Trinket M0, it can:
+- Natively output serial via USB (which is great since I wanted to use the internal USB2 header in the motherboard and splice the other end of the cable to a type-c interface)
+- Be seen in Windows as a COM device. No RGB in this case, which I preferred, although do not deny the convenience of a color coded "alert"
+
+## PART 3. Assembly
+
+##PART 4. Arduino IDE
+
+Before this project, I'd tap into [OpenWeather's Weather API](https://openweathermap.org/api), get temperature for my city via powershell, and update a .sensor file read from Fan Control. 
+Arduino code link
+
+I opted to output both sensor readings as a JSON formatted string.
+
+## FanControl Plugin
+1. I use tool called [Fan Control](https://github.com/Rem0o/FanControl.Releases). Download latest plugin DLL from [Releases](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/releases). Use instructions from [FanControl Wiki](https://github.com/Rem0o/FanControl.Releases/wiki/Plugins#requirements).
+2. Set environment variable SENSOR_COM_PORT to whichever com port your trinket is connected to
+2. Works! :)
+
+------
 
 3. Solder some goldpins to your **Trinket M0** - pin **A4** will be used as analog input, which is conveniant as **GND** is right next to it.
 
@@ -13,28 +38,5 @@ Simple program and PS script to allow monitoring of liquid temps in liquid cooli
 
 5. Connect temp probe from your liquid cooling loop into your board. You remembered to add it to your loop, right? :)
 
-6. Power your **Trinket M0** with usb from your PC. It should immediately display colors that indicate temperature:
 
-| Avg. Color | Temp range C | Description  |
-| ---------- | ------------ | ------------ |
-| Blue       | 0 - 24       | Ambient      |
-| Green      | 25 - 32      | Idle         | 
-| Yellow     | 33 - 37      | Light load   |
-| Orange     | 38 - 53      | Regular load |
-| Red        | 54 - 59      | Overheat     |
-| Hot Pink   | > 60         | Danger!      |
 
-Keep in mind that colors will tend to shift from blue -> green -> yellow -> red smoothly, so it's best to expect soe color range as indication of actual temperature.
-
-## Control PC fans using temp sensor - PowerShell
-1. I use tool called [Fan Control](https://github.com/Rem0o/FanControl.Releases). It's a great free tool that accepts file as mock "sensor". We can log our liquid temp into file and **Fan Control** will control our fans using this file. Download the tool and create new custom sensor.
-2. Launch Windows Scheduler and create new Task:
-- basic: administrator privileges + launch regardless of logged in user
-- trigger: on user login
-- actions: launch program - powershell, arguments: -command &{path-to\Trinket-M0-liquid-temperature-sensor\src\WatchLiquidTemp.ps1 -filePath 'path-to\FanControl\LiquidTemp.sensor' -com COM5} (change COM5 to whatever is seen by your system)
-3. Save your task and restart system. After reboot your custom sensor should display values from liquid temp sensor.
-  
-## Control PC fans using temp sensor - FanControl Plugin
-1. I use tool called [Fan Control](https://github.com/Rem0o/FanControl.Releases). Download latest plugin DLL from [Releases](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/releases). Use instructions from [FanControl Wiki](https://github.com/Rem0o/FanControl.Releases/wiki/Plugins#requirements).
-2. Set environment variable SENSOR_COM_PORT to whichever com port your trinket is connected to
-2. Works! :)
