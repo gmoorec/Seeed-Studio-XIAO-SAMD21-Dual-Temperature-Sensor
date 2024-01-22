@@ -33,9 +33,9 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
     3.3V PIN ════╦════╣ 10K Resistor ╠════╦════╣ Thermistor 1 ╠════╗
                  ║    ╚══════════════╝    ║    ╚══════════════╝    ║
                  ║                        ║                        ║
-                 ║         PIN 6 ═════════╝                        ║
+                 ║              PIN 6 ════╝                        ║
                  ║                                              GND PIN
-                 ║         PIN 7 ═════════╗                        ║
+                 ║              PIN 7 ════╗                        ║
                  ║                        ║                        ║
                  ║    ╔══════════════╗    ║    ╔══════════════╗    ║
                  ╚════╣ 10K Resistor ╠════╩════╣ Thermistor 2 ╠════╝
