@@ -22,7 +22,7 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
 
 ## PART 3. Assembly
 - Solder gold pins to the Seeed Studio XIAO SAMD21
-- Wire as per diagram below
+- Wire as per diagram below. 
 
 
 ### Wiring Diagram
@@ -39,6 +39,8 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
                  ╚════╣ 10K Resistor ╠════╩════╣ Thermistor 2 ╠════╝
                       ╚══════════════╝         ╚══════════════╝
 
+### Explanation
+As this microcontroller (and many others) are unable to measure resistance directly, a voltage divider is used to instead measure the voltage and calculate the resistance at the junction between the resistor and the thermistor.
 
 ## PART 4. Arduino IDE
 
