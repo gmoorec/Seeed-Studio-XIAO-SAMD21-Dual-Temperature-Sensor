@@ -13,7 +13,7 @@ Most watercooling temp sensors are 10k Ohm thermistors. I used:
 - [Alphacool Eiszapfen temperature sensor plug | Part #17364](https://shop.alphacool.com/en/shop/controllers-and-sensors/temperature-sensor/17364-alphacool-eiszapfen-temperature-sensor-plug-g1/4-chrome)
 .
 For both, Alphacool provides the same [Thermistor Datasheet](https://www.alphacool.com/download/kOhm_Sensor_Table_Alphacool.pdf) and this is useful to tune the calculated resistance values and improve accuracy. Also, means that the parts can be connected to either port in the pcb.
-
+.
 ## PART 2. Microcontroller
 .
 I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0, it can:
