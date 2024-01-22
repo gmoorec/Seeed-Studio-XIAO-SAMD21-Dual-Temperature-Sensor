@@ -29,17 +29,9 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
 
 ### Wiring Diagram
 
-                      ╔══════════════╗         ╔══════════════╗
-    3.3V PIN ════╦════╣ 10K Resistor ╠════╦════╣ Thermistor 1 ╠════╗
-                 ║    ╚══════════════╝    ║    ╚══════════════╝    ║
-                 ║                        ║                        ║
-                 ║              PIN 6 ════╝                        ║
-                 ║                                              GND PIN
-                 ║              PIN 7 ════╗                        ║
-                 ║                        ║                        ║
-                 ║    ╔══════════════╗    ║    ╔══════════════╗    ║
-                 ╚════╣ 10K Resistor ╠════╩════╣ Thermistor 2 ╠════╝
-                      ╚══════════════╝         ╚══════════════╝
+![Wiring Diagram](https://github.com/gmoorec/Seeed-Studio-XIAO-SAMD21-Dual-Temperature-Sensor/blob/main/circuit.png?raw=true)
+
+Created with [Circuit Diagram](https://www.circuit-diagram.org)
 
 ### Explanation
 As this microcontroller (and many others) are unable to measure resistance directly, a voltage divider is used to instead measure the voltage and calculate the resistance at the junction between the resistor and the thermistor.
