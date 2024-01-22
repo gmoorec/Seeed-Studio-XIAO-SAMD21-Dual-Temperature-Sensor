@@ -14,7 +14,7 @@ Most watercooling temp sensors are 10k Ohm thermistors. I used:
 
 For both, Alphacool provides the same [Thermistor Datasheet](https://www.alphacool.com/download/kOhm_Sensor_Table_Alphacool.pdf) and this is useful to tune the calculated resistance values and improve accuracy. Also, means that the parts can be connected to either port in the pcb.
 
-A future version of this might actually use the table itself. 
+A future version of this might actually use the table itself, the useful range is likely between 0 °C and 70 °C (between freezing and water temperature that either produces coolant decomposition, liquid vaporization or both)
 
 ## PART 2. Microcontroller
 
