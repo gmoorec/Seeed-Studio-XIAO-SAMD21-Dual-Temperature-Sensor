@@ -14,8 +14,6 @@ Most watercooling temp sensors are 10k Ohm thermistors. I used:
 
 For both, Alphacool provides the same [Thermistor Datasheet](https://www.alphacool.com/download/kOhm_Sensor_Table_Alphacool.pdf) and this is useful to tune the calculated resistance values and improve accuracy. Also, means that the parts can be connected to either port in the pcb.
 
-A future version of this might actually use the table itself, the useful range is likely between 0 °C and 70 °C (between freezing and water temperature that either produces coolant decomposition, liquid vaporization or both)
-
 ## PART 2. Microcontroller
 
 I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0, it can:
@@ -23,7 +21,24 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
 - Be seen in Windows as a COM device. No RGB in this case, which I preferred, although do not deny the convenience of a color coded "alert"
 
 ## PART 3. Assembly
-TBD add images / insights from project. 
+- Solder gold pins to the Seeed Studio XIAO SAMD21
+- Wire as per diagram below
+
+
+### Wiring Diagram
+
+                      ╔══════════════╗         ╔══════════════╗
+    3.3V PIN ════╦════╣ 10K Resistor ╠════╦════╣ Thermistor 1 ╠════╗
+                 ║    ╚══════════════╝    ║    ╚══════════════╝    ║
+                 ║                        ║                        ║
+                 ║         PIN 6 ═════════╝                        ║
+                 ║                                              GND PIN
+                 ║         PIN 7 ═════════╗                        ║
+                 ║                        ║                        ║
+                 ║    ╔══════════════╗    ║    ╔══════════════╗    ║
+                 ╚════╣ 10K Resistor ╠════╩════╣ Thermistor 2 ╠════╝
+                      ╚══════════════╝         ╚══════════════╝
+
 
 ## PART 4. Arduino IDE
 
