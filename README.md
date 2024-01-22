@@ -2,7 +2,7 @@
 This is a fork from [Naata/Trinket-M0-liquid-temperature-sensor](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/tree/main) which I used as base, and modified to my particular use case, and needs. 
 In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference, which ultimately helps tune for accoustics. 
 
-This also uses [Newtonsoft.Json](https://www.newtonsoft.com/json) to handle json parsing. There is a .NET alternative "System.Text.Json" but I lack the knowledge required to understand why I could not make it work.
+This also uses [Newtonsoft.Json](https://www.newtonsoft.com/json) to handle json parsing. There is a .NET alternative "System.Text.Json" but I lack the knowledge required to understand why I could not make it work. 
 
 The Arduino code is derived from Naata's and [Adafruit | Using a Thermistor](https://learn.adafruit.com/thermistor/using-a-thermistor) page, essentially increasing the number of measurements and the delay between these in an effort to improve accuracy. Lastly, the output is JSON instead of a single temperature value to feed into FanControl.
 
