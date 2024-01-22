@@ -42,6 +42,8 @@ I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0,
 ### Explanation
 As this microcontroller (and many others) are unable to measure resistance directly, a voltage divider is used to instead measure the voltage and calculate the resistance at the junction between the resistor and the thermistor.
 
+Use the 3.3V Pin and not the 5V PIN. This microcontroller's logic is 3.3V based. Using the 5V supply will result in skewed "measurements" which in my experience, turned into colder numbers than expected (water that was hot to the touch, around 50 °C would be represented in the range of 30 °C) 
+
 ## PART 4. Arduino IDE
 
 Before this project, I'd tap into [OpenWeather's Weather API](https://openweathermap.org/api), get temperature for my city via powershell, and update a .sensor file read from FanControl. 
@@ -59,4 +61,4 @@ I opted to output both sensor readings as a JSON formatted string (e.g.: {"temp1
 ## PART 6. The Future
 
 - Considering that the ultimate goal is to manage coolant temps, perhaps a Delta between a set Temperature (max operating range as stated by the manufacturer, or your max liquid temperature) and the current water temperature could yield a more efficient outcome. As the gap narrows, fans spin faster. 
-- Design and print a small case that protects the electronics, and helps place the controller inside the PC case (either double sided tape or 
+- Design and print a small case that protects the electronics, and helps place the controller inside the PC case (either double sided tape or proper mount with screws)
