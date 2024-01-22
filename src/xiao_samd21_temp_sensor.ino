@@ -2,8 +2,8 @@
 #include <math.h>
 
 #define SERIESRESISTOR 10000                           // the value of the 'other' resistor
-#define THERMISTORPIN1 A7                              // Pin for Thermistor #1
-#define THERMISTORPIN2 A6                              // Pin for Thermistor #2
+#define THERMISTORPIN1 A6                              // Pin for Thermistor #1
+#define THERMISTORPIN2 A7                              // Pin for Thermistor #2
 #define THERMISTORNOMINAL 10000                        // Thermistor nominal resistance (10k)
 #define TEMPERATURENOMINAL 25                          // Temp. for nominal resistance (almost always 25 C)
 #define NUMSAMPLES 10                                  // how many samples to take and average, more samples take more time. Averaging reduces drastic fluctiations.
