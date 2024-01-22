@@ -43,7 +43,7 @@ Use the 3.3V Pin and not the 5V PIN. This microcontroller's logic is 3.3V based.
 Before this project, I'd tap into [OpenWeather's Weather API](https://openweathermap.org/api), get temperature for my city via powershell, and update a .sensor file read from FanControl. 
 
 Code: [Arduino](https://github.com/gmoorec/XIAO-M0-Dual-Temperature-Sensor/blob/main/src/xiao_samd21_temp_sensor.ino)
-I opted to output both sensor readings as a JSON formatted string (e.g.: {"temp1":22.66,"temp2":22.50}) which then the DLL in the next section parses and turns into two sensors readable from FanControl.
+I opted to output both sensor readings as a JSON formatted string, e.g.: ``{"temp1":22.66,"temp2":22.50}`` which then the DLL in the next section parses and turns into two sensors readable from FanControl.
 
 ## PART 5. FanControl Plugin
 -  Download [Fan Control](https://github.com/Rem0o/FanControl.Releases). Arguably the best tool for the job, bar none.
