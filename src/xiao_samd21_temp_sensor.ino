@@ -49,7 +49,7 @@ float calculate_temp(float resistance) {
   return steinhart;
 }
 
-void json_temp(float temp1, float temp2) {
+void json_temp(float temp1, float temp2) {             // Outputs in format: {"temp1":22.66,"temp2":22.50}
   Serial.print("{\"temp1\":");
   Serial.print(temp1);
   Serial.print(",\"temp2\":");
