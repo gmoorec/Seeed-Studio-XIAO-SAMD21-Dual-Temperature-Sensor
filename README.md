@@ -1,4 +1,4 @@
-# XIAO-M0-liquid-temperature-sensor
+# Seeed-Studio-XIAO-liquid-temperature-sensor
 This is a fork from [Naata/Trinket-M0-liquid-temperature-sensor](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/tree/main) which I used as base, and modified to my particular use case, and needs. 
 In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference. 
 
@@ -18,7 +18,7 @@ A future version of this might actually use the table itself, the useful range i
 
 ## PART 2. Microcontroller
 
-I opted for the Seeed XIAO SAMD21, and just like the Adafruit Trinket M0, it can:
+I opted for the Seeed Studio XIAO SAMD21, and just like the Adafruit Trinket M0, it can:
 - Natively output serial via USB (which is great since I wanted to use the internal USB2 header in the motherboard and splice the other end of the cable to a type-c interface)
 - Be seen in Windows as a COM device. No RGB in this case, which I preferred, although do not deny the convenience of a color coded "alert"
 
@@ -33,10 +33,10 @@ Code: [Arduino](https://github.com/gmoorec/XIAO-M0-Dual-Temperature-Sensor/blob/
 I opted to output both sensor readings as a JSON formatted string (e.g.: {"temp1":22.66,"temp2":22.50}) which then the DLL in the next section parses and turns into two sensors readable from FanControl.
 
 ## PART 5. FanControl Plugin
--  Download [Fan Control](https://github.com/Rem0o/FanControl.Releases).
+-  Download [Fan Control](https://github.com/Rem0o/FanControl.Releases). Arguably the best tool for the job, bar none.
 -  Download latest plugin DLL from [Releases](https://github.com/gmoorec/XIAO-M0-Dual-Temperature-Sensor/releases/).
 -  Use instructions from [FanControl Wiki](https://github.com/Rem0o/FanControl.Releases/wiki/Plugins#requirements).
--  Set environment variable SENSOR_COM_PORT to whichever com port your trinket is connected to
+-  Set environment variable SENSOR_COM_PORT to whichever com port your Seeed Studio XIAO SAMD21 is connected to
 -  Profit. 
 
 ## PART 6. The Future
