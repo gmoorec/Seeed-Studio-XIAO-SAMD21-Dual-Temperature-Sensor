@@ -21,6 +21,7 @@ I opted for the Seeed XIAO SAMD21, and just like the Adafruit Trinket M0, it can
 - Be seen in Windows as a COM device. No RGB in this case, which I preferred, although do not deny the convenience of a color coded "alert"
 
 ## PART 3. Assembly
+TBD add images / insights from project. 
 
 ## PART 4. Arduino IDE
 
