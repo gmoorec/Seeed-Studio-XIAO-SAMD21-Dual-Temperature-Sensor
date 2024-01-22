@@ -1,4 +1,4 @@
-﻿using System.IO.Ports;
+using System.IO.Ports;
 
 namespace FanControl.SerialComSensor
 {
@@ -8,7 +8,8 @@ namespace FanControl.SerialComSensor
 
         public string Data { set; get; }
 
-        public COMReader(string com) {
+        public COMReader(string com)
+        {
             port = new SerialPort(com, 9600, Parity.None, 8, StopBits.One);
             port.DtrEnable = true;
             port.DataReceived += new SerialDataReceivedEventHandler(dataReceived);
@@ -21,8 +22,9 @@ namespace FanControl.SerialComSensor
             port.Close();
         }
 
-        public void dataReceived(object sender, SerialDataReceivedEventArgs e) {
-            Data = port.ReadLine().Trim().Split('.')[0]; // leave fraction part .XXX
+        public void dataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            Data = port.ReadLine().Trim(); // Updated to handle JSON data
         }
     }
 }
