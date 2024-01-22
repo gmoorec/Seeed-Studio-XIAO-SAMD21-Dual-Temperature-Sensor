@@ -1,6 +1,6 @@
 # Seeed-Studio-XIAO-SAMD21-Dual-Temperature-Sensor
 This is a fork from [Naata/Trinket-M0-liquid-temperature-sensor](https://github.com/Naata/Trinket-M0-liquid-temperature-sensor/tree/main) which I used as base, and modified to my particular use case, and needs. 
-In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference. 
+In my scenario, I wanted to monitor both Air/Ambient temperature and Water temperature, and have my radiator fan curves be a function of the air/water temperature difference, which ultimately helps tune for accoustics. 
 
 This also uses [Newtonsoft.Json](https://www.newtonsoft.com/json) to handle json parsing. There is a .NET alternative "System.Text.Json" but I lack the knowledge required to understand why I could not make it work.
 
