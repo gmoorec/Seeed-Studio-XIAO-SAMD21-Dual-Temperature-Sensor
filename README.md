@@ -4,7 +4,7 @@ In my scenario, I wanted to monitor both Air/Ambient temperature and Water tempe
 
 This also uses [Newtonsoft.Json](https://www.newtonsoft.com/json) to handle json parsing. There is a .NET alternative "System.Text.Json" but I lack the knowledge required to understand why I could not make it work.
 
-The Arduino code is derived from Naata's and [Adafruit | Using a Thermistor](https://learn.adafruit.com/thermistor/using-a-thermistor)
+The Arduino code is derived from Naata's and [Adafruit | Using a Thermistor](https://learn.adafruit.com/thermistor/using-a-thermistor) page, essentially increasing the number of measurements and the delay between these in an effort to improve accuracy. Lastly, the output is JSON instead of a single temperature value to feed into FanControl.
 
 ## PART 1. The Sensors
 
