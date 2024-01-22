@@ -38,3 +38,8 @@ I opted to output both sensor readings as a JSON formatted string (e.g.: {"temp1
 -  Use instructions from [FanControl Wiki](https://github.com/Rem0o/FanControl.Releases/wiki/Plugins#requirements).
 -  Set environment variable SENSOR_COM_PORT to whichever com port your trinket is connected to
 -  Profit. 
+
+## PART 6. The Future
+
+- Considering that the ultimate goal is to manage coolant temps, perhaps a Delta between a set Temperature (max operating range as stated by the manufacturer, or your max liquid temperature) and the current water temperature could yield a more efficient outcome. As the gap narrows, fans spin faster. 
+- Design and print a small case that protects the electronics, and helps place the controller inside the PC case (either double sided tape or 
