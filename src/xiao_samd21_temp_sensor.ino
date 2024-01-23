@@ -32,7 +32,7 @@ void take_reading(float &average1, float &average2) {
     currentRead2 = (1023 / currentRead2) - 1;          
     currentRead2 = SERIESRESISTOR / currentRead2;       
     average2 += currentRead2;
-    delay(50)
+    delay(50);
   }
 
   average1 /= NUMSAMPLES;  // Average resistance for the first thermistor
