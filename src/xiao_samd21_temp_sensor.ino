@@ -35,8 +35,8 @@ void take_reading(float &average1, float &average2) {
     delay(50);
   }
 
-  average1 /= NUMSAMPLES;  // Average resistance for the first thermistor
-  average2 /= NUMSAMPLES;  // Average resistance for the second thermistor
+  average1 /= NUMSAMPLES;                              // Average resistance for the first thermistor
+  average2 /= NUMSAMPLES;                              // Average resistance for the second thermistor
 }
 
 float calculate_temp(float resistance) {
