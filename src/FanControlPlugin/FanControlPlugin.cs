@@ -16,6 +16,7 @@ namespace FanControl.SerialComSensor
             {
                 throw new Exception("SENSOR_COM_PORT variable is not set!");
             }
+            
             reader = new COMReader(com);
             temp1Sensor = new TempSensor(reader, "temp1");
             temp2Sensor = new TempSensor(reader, "temp2");
