@@ -1,37 +1,44 @@
-using FanControl.Plugins;
-using System;
-using System.Collections.Generic;
-
-namespace FanControl.SerialComSensor
-{
-    public class FanControlPlugin : IPlugin
-    {
-        private COMReader reader;
-        private TempSensor temp1Sensor;
-        private TempSensor temp2Sensor;
-
-        public void Initialize()
+public void InitializeAndLoad(IPluginSensorsContainer _container)
         {
-            string com = Environment.GetEnvironmentVariable("SENSOR_COM_PORT");
-            if (com == null)
+            // Check if reader is disposed or null
+            if (reader == null || reader.IsDisposed)
             {
-                throw new Exception("SENSOR_COM_PORT variable is not set!");
+                string com = Environment.GetEnvironmentVariable("SENSOR_COM_PORT");
+                if (com == null)
+                {
+                    throw new Exception("SENSOR_COM_PORT variable is not set!");
+                }
+
+                reader = new COMReader(com);
             }
 
-            reader = new COMReader(com);
-            temp1Sensor = new TempSensor(reader, "temp1");
-            temp2Sensor = new TempSensor(reader, "temp2");
+            // Check if temp1Sensor is disposed or null
+            if (temp1Sensor == null || temp1Sensor.IsDisposed)
+            {
+                temp1Sensor = new TempSensor(reader, "temp1");
+            }
+
+            // Check if temp2Sensor is disposed or null
+            if (temp2Sensor == null || temp2Sensor.IsDisposed)
+            {
+                temp2Sensor = new TempSensor(reader, "temp2");
+            }
+
+            // Add sensors to the container
+            _container.TempSensors.Add(temp1Sensor);
+            _container.TempSensors.Add(temp2Sensor);
         }
 
         public void Close()
         {
-            reader.Dispose();
+            DisposeObjects();
         }
 
-        public void Load(IPluginSensorsContainer _container)
+        private void DisposeObjects()
         {
-            _container.TempSensors.Add(temp1Sensor);
-            _container.TempSensors.Add(temp2Sensor);
+            reader?.Dispose();
+            temp1Sensor?.Dispose();
+            temp2Sensor?.Dispose();
         }
 
         public string Name => "FanControlPlugin.SerialCOMSensor";
