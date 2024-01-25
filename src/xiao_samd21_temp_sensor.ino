@@ -6,7 +6,7 @@
 #define THERMISTORPIN2 A6                              // Pin for Thermistor #2
 #define THERMISTORNOMINAL 10000                        // Thermistor nominal resistance (10k)
 #define TEMPERATURENOMINAL 25                          // Temp. for nominal resistance (almost always 25 C)
-#define NUMSAMPLES 20                                  // how many samples to take and average, more samples take more time. Averaging reduces drastic fluctiations.
+#define NUMSAMPLES 20                                  // # of samples to take and average, more samples  =  less spikes in  measurement
 #define BCOEFFICIENT 3435                              // The beta coefficient of the thermistor (usually 3000-4000)
 
 #define WAIT_TIME 1000
@@ -49,7 +49,7 @@ float calculate_temp(float resistance) {
   return steinhart;
 }
 
-void json_temp(float temp1, float temp2) {             // Outputs in format: {"temp1":22.66,"temp2":22.50}
+void json_temp(float temp1, float temp2) {             // Outputs in JSON format: {"temp1":22.66,"temp2":22.50}
   Serial.print("{\"temp1\":");
   Serial.print(temp1);
   Serial.print(",\"temp2\":");
