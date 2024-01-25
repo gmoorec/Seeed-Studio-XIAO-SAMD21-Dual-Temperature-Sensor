@@ -6,7 +6,7 @@
 #define THERMISTORPIN2 A6                              // Pin for Thermistor #2
 #define THERMISTORNOMINAL 10000                        // Thermistor nominal resistance (10k)
 #define TEMPERATURENOMINAL 25                          // Temp. for nominal resistance (almost always 25 C)
-#define NUMSAMPLES 10                                  // how many samples to take and average, more samples take more time. Averaging reduces drastic fluctiations.
+#define NUMSAMPLES 20                                  // how many samples to take and average, more samples take more time. Averaging reduces drastic fluctiations.
 #define BCOEFFICIENT 3435                              // The beta coefficient of the thermistor (usually 3000-4000)
 
 #define WAIT_TIME 1000
@@ -68,5 +68,5 @@ void loop() {
   //Serial.println(averageResistance1);
   //Serial.println(averageResistance2);
 
-  delay(WAIT_TIME);
+  //delay(WAIT_TIME);
 }
