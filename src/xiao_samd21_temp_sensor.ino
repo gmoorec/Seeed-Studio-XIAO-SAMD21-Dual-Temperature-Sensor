@@ -6,7 +6,7 @@
 #define THERMISTORPIN2 A6                              // Pin for Thermistor #2
 #define THERMISTORNOMINAL 10000                        // Thermistor nominal resistance (10k)
 #define TEMPERATURENOMINAL 25                          // Temp. for nominal resistance (almost always 25 C)
-#define NUMSAMPLES 20                                  // # of samples to take and average, more samples  =  less spikes in  measurement
+#define NUMSAMPLES 250                                 // # of samples to take and average
 #define BCOEFFICIENT 3435                              // The beta coefficient of the thermistor (usually 3000-4000)
 
 #define WAIT_TIME 1000
@@ -20,19 +20,17 @@ void take_reading(float &average1, float &average2) {
   average2 = 0.0;
 
   for (byte i = 0; i < NUMSAMPLES; i++) {
-    float currentRead1 = analogRead(THERMISTORPIN1);  // Read from first thermistor
-    float currentRead2 = analogRead(THERMISTORPIN2);  // Read from second thermistor
+    float currentRead1 = analogRead(THERMISTORPIN1);   // Read from first thermistor
+    float currentRead2 = analogRead(THERMISTORPIN2);   // Read from second thermistor
 
-    // Calculate resistance for the first thermistor
-    currentRead1 = (1023 / currentRead1) - 1;          
+    currentRead1 = (1023 / currentRead1) - 1;          // Calculate resistance for the first thermistor
     currentRead1 = SERIESRESISTOR / currentRead1;       
     average1 += currentRead1;
 
-    // Calculate resistance for the second thermistor
-    currentRead2 = (1023 / currentRead2) - 1;          
+    currentRead2 = (1023 / currentRead2) - 1;          // Calculate resistance for the second thermistor
     currentRead2 = SERIESRESISTOR / currentRead2;       
     average2 += currentRead2;
-    delay(50);
+    delay(4);
   }
 
   average1 /= NUMSAMPLES;                              // Average resistance for the first thermistor
