@@ -19,7 +19,7 @@ The plugin needs to know which COM port your Arduino is connected to.
 
 ### 2. Deploy the Plugin DLL
 1. Locate the compiled `FanControl.CustomLoop.dll` in this repository under the `FanControl.CustomLoop/` directory.
-2. Copy `FanControl.CustomLoop.dll` and paste it into your FanControl installation's **Plugins** folder (usually located at `C:\path\to\FanControl\Plugins\`).
+2. Copy `FanControl.CustomLoop.dll` and paste it into your FanControl installation's **Plugins** folder (usually located at `C:\Program Files (x86)\FanControl\Plugins\`).
 
 ### 3. Run FanControl
 1. Start **FanControl.exe**.
@@ -83,13 +83,15 @@ You must register the custom performance counters in Windows so they are readabl
 12. Click the **Apply** button at the bottom of the MSI Afterburner properties window to save your active graph selections.
 
 ### 3. Enable Graphs and Group OSD Elements
-1. In the main **Monitoring** settings tab, select **Ambient** in the list:
-   * Check the box **"Show in On-Screen Display"**.
+1. In the main **Monitoring** settings tab, scroll down to find your new **Ambient** and **Coolant** graphs.
+2. **Check the box** next to both names to activate their monitoring.
+3. Select **Ambient**:
+   * Check **"Show in On-Screen Display"**.
    * Under **OSD Group Name**, type **`Loop Temps`** (or your custom overlay pill group name).
-2. Select **Coolant** in the list:
-   * Check the box **"Show in On-Screen Display"**.
-   * Set the **OSD Group Name** to the **exact same name** (`Loop Temps`).
-3. Click **Apply** and **OK** to finally save all overlay and monitoring settings.
+4. Select **Coolant**:
+   * Check **"Show in On-Screen Display"**.
+   * Set **OSD Group Name** to the **exact same name** (`Loop Temps`).
+5. Click **Apply** and **OK**.
 
 Your in-game overlay (RTSS) will now render the grouped temperatures together as a single floating pill overlay!
 
