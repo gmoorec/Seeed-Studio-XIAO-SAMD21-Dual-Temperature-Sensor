@@ -10,7 +10,7 @@ if (-not [System.Diagnostics.PerformanceCounterCategory]::Exists($categoryName))
     $counterData.Add($temp1) | Out-Null
     $counterData.Add($temp2) | Out-Null
     
-    [System.Diagnostics.PerformanceCounterCategory]::Create($categoryName, "Arduino Temp Probes", "SingleInstance", $counterData) | Out-Null
+    [System.Diagnostics.PerformanceCounterCategory]::Create($categoryName, "Arduino Temp Probes", [System.Diagnostics.PerformanceCounterCategoryType]::SingleInstance, $counterData) | Out-Null
     Write-Host "Success! The performance counters have been created."
 } else {
     Write-Host "Counters already exist. You are good to go!"
